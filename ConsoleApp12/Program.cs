@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-           
+
         }
     }
     public struct DeliveryAddress
@@ -42,11 +42,11 @@
         }
         public string code
         {
-            get 
+            get
             {
                 return TrackingCode;
             }
-           
+
         }
         public string description
         {
@@ -59,11 +59,11 @@
         public int weight
         {
             get { return Weight; }
-            set { if (value > 0) {  Weight = value; }  }
+            set { if (value > 0) { Weight = value; } }
         }
         public int deliveryFee
         {
-            get{ return DeliveryFee; }
+            get { return DeliveryFee; }
             private set { if (value > 0) { DeliveryFee = value; } }
         }
         public DeliveryAddress deliveryAddress { get; set; }
@@ -94,6 +94,60 @@
 
 
     }
+    public class DeliveryCenter
+    {
+        private Shipment[] shipments;
+        private int count; 
+        private int Capacity = 3;
+        public DeliveryCenter()
+        {
+            shipments = new Shipment[Capacity];
+            count = 0;
+        }
+        public Shipment this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= Capacity)
+                    return null; 
+                return shipments[index];
+            }
+            set
+            {
+                if (index < 0 || index >= Capacity)
+                    return; 
+
+                shipments[index] = value;
+                count++;
+            }
+        }
+        public Shipment this[string trackingCode]
+        {
+            get
+            {
+                for (int i = 0; i < Capacity; i++)
+                {
+                    if (shipments[i].code == trackingCode)
+                        return shipments[i];
+                }
+                return null; 
+            }
+        }
+
+        public bool AddShipment(Shipment shipment)
+        {
+            for (int i = 0; i < Capacity; i++)
+            {
+               
+                if (shipments[i].code == null)
+                {
+                    shipments[i] = shipment;
+                    return true;
+                }
+            }
+            return false; 
+        }
 
 
     }
+}
