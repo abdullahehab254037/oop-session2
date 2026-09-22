@@ -4,6 +4,37 @@
     {
         static void Main(string[] args)
         {
+            //DeliveryCenter deliveryCenter = new DeliveryCenter();
+            //for(int i = 0;i<3;i++)
+            //{
+            //    Console.WriteLine("enter city");
+            //    string city = Console.ReadLine();
+            //    Console.WriteLine("enter street");
+            //    string street = Console.ReadLine();
+            //    Console.WriteLine("enter building number");
+            //    int buldingnum=Convert.ToInt32(Console.ReadLine());
+            //    DeliveryAddress deliveryAddress = new DeliveryAddress(city,street,buldingnum);
+            //    Console.WriteLine("enter code");
+            //    string code = Console.ReadLine();
+            //    Console.WriteLine("enter descr");
+            //    string descr = Console.ReadLine();
+            //    Console.WriteLine("enter weight");
+            //    int weight = Convert.ToInt32(Console.ReadLine());
+            //    Console.WriteLine("enter fee");
+            //    int fee = Convert.ToInt32(Console.ReadLine());
+            //    Shipment shipment=new Shipment(code,descr,weight,fee,deliveryAddress);
+            //    deliveryCenter[i] = shipment;
+            //   // deliveryCenter.AddShipment(shipment);
+            //}
+            //for(int i=0;i<3;i++)
+            //{
+            //    deliveryCenter[i].PrintShipment();
+            //}
+            //
+            //Console.WriteLine("enter code");
+            //string code = Console.ReadLine();
+            //Shipment FoundedShipment = deliveryCenter[code];
+            //if (FoundedShipment != null) { FoundedShipment.PrintShipment(); }
 
         }
     }
@@ -139,7 +170,7 @@
             for (int i = 0; i < Capacity; i++)
             {
                
-                if (shipments[i].code == null)
+                if (shipments[i]==null)
                 {
                     shipments[i] = shipment;
                     return true;
