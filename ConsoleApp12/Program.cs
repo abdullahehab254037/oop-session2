@@ -23,5 +23,77 @@
             return $"{BuildingNumber} {street}, {city}";
         }
     }
-    
-}
+
+    public class Shipment
+    {
+        private string TrackingCode;
+        private string Description;
+        private int Weight;
+        private int DeliveryFee;
+        public DeliveryAddress Destination;
+
+        public Shipment(string trackingCode, string description, int weight, int deliveryFee, DeliveryAddress destination)
+        {
+            TrackingCode = trackingCode;
+            Description = description;
+            Weight = weight;
+            DeliveryFee = deliveryFee;
+            Destination = destination;
+        }
+        public string code
+        {
+            get 
+            {
+                return TrackingCode;
+            }
+           
+        }
+        public string description
+        {
+            get { return Description; }
+            set
+            {
+                if (value != null) { Description = value; }
+            }
+        }
+        public int weight
+        {
+            get { return Weight; }
+            set { if (value > 0) {  Weight = value; }  }
+        }
+        public int deliveryFee
+        {
+            get{ return DeliveryFee; }
+            private set { if (value > 0) { DeliveryFee = value; } }
+        }
+        public DeliveryAddress deliveryAddress { get; set; }
+        public int EstimatedCost
+        {
+            get { return DeliveryFee + (Weight * 5); }
+        }
+        public void UpdateDeliveryFee(int newFee)
+        {
+            if (newFee > 0)
+            {
+                DeliveryFee = newFee;
+            }
+        }
+        public void PrintShipment()
+        {
+            Console.WriteLine($"tracking code:{TrackingCode},,,,description:{Description},,,,weight:{Weight},,,,delivery fee:{DeliveryFee}");
+        }
+        public Shipment(string trackingCode)
+        {
+            this.TrackingCode = trackingCode;
+            Description = "Unknown";
+            Weight = 1;
+            DeliveryFee = 50;
+            Destination = default;
+        }
+
+
+
+    }
+
+
+    }
