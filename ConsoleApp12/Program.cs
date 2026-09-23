@@ -35,7 +35,52 @@
             //string code = Console.ReadLine();
             //Shipment FoundedShipment = deliveryCenter[code];
             //if (FoundedShipment != null) { FoundedShipment.PrintShipment(); }
-
+            //string centername=Console.ReadLine();
+            //DeliveryCenter2 deliveryCenter2 = new DeliveryCenter2(centername);
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.WriteLine("enter city");
+            //    string city = Console.ReadLine();
+            //    Console.WriteLine("enter street");
+            //    string street = Console.ReadLine();
+            //    Console.WriteLine("enter building number");
+            //    int buldingnum = Convert.ToInt32(Console.ReadLine());
+            //    DeliveryAddress deliveryAddress = new DeliveryAddress(city, street, buldingnum);
+            //    Console.WriteLine("enter code");
+            //    string code = Console.ReadLine();
+            //    Console.WriteLine("enter descr");
+            //    string descr = Console.ReadLine();
+            //    Console.WriteLine("enter weight");
+            //    int weight = Convert.ToInt32(Console.ReadLine());
+            //    Console.WriteLine("enter fee");
+            //    int fee = Convert.ToInt32(Console.ReadLine());
+            //    if(i==0)
+            //    {
+            //        StandardShipment standard = new StandardShipment(code, descr, weight, fee, deliveryAddress);
+            //        deliveryCenter2[i] = standard;
+            //    }
+            //    if(i==1)
+            //    {
+            //        decimal extrafee=Convert.ToDecimal(Console.ReadLine());
+            //        ExpressShipment express = new ExpressShipment(code, descr, weight, fee, deliveryAddress,extrafee);
+            //        deliveryCenter2[i] = express;
+            //    }
+            //    if(i==2)
+            //    {
+            //        decimal customfee= Convert.ToDecimal(Console.ReadLine());
+            //        string dest=Console.ReadLine();
+            //        InternationalShipment international = new InternationalShipment(code, descr, weight, fee, deliveryAddress,dest, customfee);
+            //        deliveryCenter2[i] = international;
+            //
+            //    }
+            //    
+            //    
+            //    // deliveryCenter.AddShipment(shipment);
+            //}
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    deliveryCenter2[i].PrintShipment();
+            //}
         }
     }
     public struct DeliveryAddress
