@@ -129,7 +129,7 @@
     {
         private Shipment[] shipments;
         private int count; 
-        private int Capacity = 3;
+        public int Capacity = 3;
         public DeliveryCenter()
         {
             shipments = new Shipment[Capacity];
@@ -178,6 +178,86 @@
             }
             return false; 
         }
+
+
+    }
+    public class StandardShipment : Shipment
+    {
+       public StandardShipment(string trackingCode, string description, int weight, int deliveryFee, DeliveryAddress destination):base( trackingCode,  description,  weight,  deliveryFee,  destination)
+        {
+
+        }
+    }
+    public class ExpressShipment: Shipment
+    {
+        private decimal ExtraFee;
+        public ExpressShipment(string trackingCode, string description, int weight, int deliveryFee, DeliveryAddress destination,decimal extrafee) : base(trackingCode, description, weight, deliveryFee, destination)
+        {
+            ExtraFee = extrafee;
+        }
+        public decimal extrafee
+        {
+            get { return ExtraFee; }
+            set { if (extrafee > 0) {  ExtraFee = value; }  }
+        }
+        public decimal EstimatedCost
+        {
+            get {return this.EstimatedCost + ExtraFee; }
+        }
+
+    }
+
+    public class InternationalShipment : Shipment
+    {
+        private decimal CustomsFee;
+        private string DestinationCountry;
+        public InternationalShipment(string trackingCode, string description, int weight, int deliveryFee, DeliveryAddress destination,string destinationCountry,
+            decimal customsFee) : base(trackingCode, description, weight, deliveryFee, destination)
+        {
+            DestinationCountry = destinationCountry;
+            CustomsFee=customsFee;
+        }
+        public string destinationCountry
+        {
+            get { return DestinationCountry; }
+            set
+            {
+                if (value != null) { DestinationCountry = value; }
+            }
+        }
+        public decimal customsFee
+        {
+            get { return CustomsFee; }
+            set
+            {
+                if(value>0)
+                {
+                    CustomsFee = value;
+                }
+            }
+        }
+        public decimal EstimatedCost
+        {
+            get { return this.EstimatedCost + CustomsFee; }
+        }
+    }
+    public class DeliveryCenter2: DeliveryCenter
+    {
+        private string CenterName;
+        
+        public DeliveryCenter2(string centername):base()
+        {
+            CenterName = centername;
+            this.Capacity = 20;
+        }
+        public bool RemoveShipment(string trackingcode)
+        {
+            Shipment s = this[trackingcode];
+            if (s== null) { return true; }
+            return false;
+            
+        }
+
 
 
     }
